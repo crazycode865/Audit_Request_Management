@@ -1,0 +1,13 @@
+name: PR Lint
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+jobs:
+  pr-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull Request Linter
+        uses: seferov/pr-lint-action@master
+        with:
+            title-regex: '\[GTP-\d{1,3}\]\s(.+){5,}'
+            error-message: 'Please add a valid title in format `[<story>] <description>` for eg. `[GTP-1] Adding user login details`'

@@ -1,0 +1,30 @@
+@use '@angular/material' as mat;
+@import 'src/scss/variables';
+
+nav {
+    display: flex;
+    flex-direction: column;
+
+    .mat-icon-button {
+        width: 100%;
+        height: auto;
+        text-align: center;        
+    }
+    .active {
+        .nav-item {
+            background-color: mat.get-color-from-palette($md-primary-pallette, 500);
+        }
+    }
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: $border;
+    padding: $padding 0;    
+    span {
+        line-height: $body-font-size;
+    }
+}

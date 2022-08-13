@@ -1,0 +1,80 @@
+<div class="appbar">
+  <mat-toolbar>
+    <span>Contract Details</span>
+
+    <app-contract-dropdown
+      label="Production Company"
+      [options]="productionDropdownOptions"
+      [data]="request.productionName"
+      [reqDetails]="url"
+      (id)="getProjects($event)"
+    >
+    </app-contract-dropdown>
+    <app-contract-dropdown
+      label="Project Name"
+      [options]="projectDropdownOptions"
+      [data]="request.projectName"
+      [reqDetails]="url"
+      (id)="getTalents($event)"
+    >
+    </app-contract-dropdown>
+    <app-contract-dropdown
+      label="Talent Name"
+      [options]="talentDropdownOptions"
+      [data]="request.talentName"
+      [reqDetails]="url"
+      (id)="getContract($event)"
+    ></app-contract-dropdown>
+
+    <div class="production">
+      <div class="text">Production#</div> <br />
+      <div class="contractNo">{{ request.contractNo }}</div>
+    </div>
+
+    <div class="date" *ngIf="url; else elseBlock">
+      <div >Date <br>{{ request.contractDate | date: 'shortDate' }}</div> 
+        <mat-icon>calendar_today</mat-icon>
+    </div>
+    <ng-template #elseBlock>
+      <div class="cont contract contract-date-picker">
+        <form >
+        <mat-form-field appearance="fill">
+          <mat-label>Date</mat-label>
+          <input
+            (dateChange)="onContractDateChange($event)"
+            matInput
+            [matDatepicker]="picker"
+          />
+          <mat-datepicker-toggle matSuffix [for]="picker">
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </form>
+      </div>
+    </ng-template>
+  </mat-toolbar>
+
+  <div class="container">
+    <div class="box1">
+      <app-report-category 
+        (categoryListChange)="onCategoryListChange($event)" 
+        [tasks]="taskList"
+        [reqDetails]="url" >
+      </app-report-category>
+    </div>
+    <div class="box2">
+      <div class="right-box">
+        <div class="cal">
+          <app-important-dates
+            [reqDetails]="url"
+            [req]="request"
+            (dateChanged)="onImportantDatesChanged($event)"
+          ></app-important-dates>
+        </div>
+        <div class="doc">
+          <app-documents-dossier [request]="request"></app-documents-dossier>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

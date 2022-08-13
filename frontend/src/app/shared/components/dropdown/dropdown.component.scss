@@ -1,0 +1,35 @@
+@use '@angular/material' as mat;
+@import 'src/scss/variables';
+
+:host {
+  position: relative;
+  height: 1rem;
+}
+
+input {
+  background-color: mat.get-color-from-palette($md-primary-pallette, 500);
+  border-radius: 4px;
+  border: $border;
+  color: $black;
+  height: 2rem;
+}
+mat-icon {
+  color: $gray;
+  position: absolute;
+  right: 0;
+  bottom: 1px;
+  transform: scale(1.5);
+}
+.icon {
+  bottom: 12px;
+}
+select {
+  background-color: mat.get-color-from-palette($md-primary-pallette, 500);
+  border-radius: 5px;
+  border: $border;
+  padding: 8px;
+  color: $text-color;
+}
+::ng-deep .mat-tooltip {
+  font-size: 15px;
+}

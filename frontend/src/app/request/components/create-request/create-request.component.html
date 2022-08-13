@@ -1,0 +1,69 @@
+<app-layout>
+  <ng-container header>
+    <div>
+      <h3>Request # {{ request.requestId }}</h3>
+    </div>
+
+    <div class="dropdown-container">
+      <div class="cont">
+        <h3>
+          Date: {{ req.requestSchedule.requestCreated | date: 'shortDate' }}
+        </h3>
+      </div>
+      <div class="cont">
+        <app-dropdown
+          (selectedOption)="statusValue($event)"
+          [options]="statusDropDownOptions"
+          [data]="req.status"
+          [reqDetails]="reqDetails"
+          [requestView]="reqView"
+          label="Status"
+        >
+        </app-dropdown>
+      </div>
+
+      <div class="cont">
+        <app-dropdown
+          (selectedOption)="priorityValue($event)"
+          [options]="priorityDropDownOptions"
+          [data]="req.priority"
+          [reqDetails]="reqDetails"
+          [requestView]="reqView"
+          label="Priority"
+        >
+        </app-dropdown>
+      </div>
+
+      <div class="cont">
+        <app-dropdown
+          (selectedOption)="unionValue($event)"
+          [options]="unionsDropDownOptions"
+          [data]="req.unionName"
+          [reqDetails]="reqDetails"
+          [requestView]="reqView"
+          label="Union"
+        >
+        </app-dropdown>
+      </div>
+    </div>
+    <div>
+      <button mat-raised-button color="secondary" (click)="redirectToHome()">
+        Close
+      </button>
+      <span></span>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="onCreateRequestSubmit()"
+      >
+        Submit
+      </button>
+    </div>
+  </ng-container>
+  <app-contract-details
+    [url]="reqDetails"
+    [request]="req"
+    (contractDetailsChange)="onContractDetailsChange($event)"
+    (importantDatesChanged)="changeImportantDates($event)"
+  ></app-contract-details>
+</app-layout>

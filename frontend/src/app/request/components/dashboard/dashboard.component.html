@@ -1,0 +1,77 @@
+<div *ngIf="loaderService.isLoading | async">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+
+<app-layout>
+  <ng-container header>
+    <button
+      mat-raised-button
+      color="primary"
+      [routerLink]="['create-request']"
+      *ngIf="role === 'manager'"
+    >
+      <mat-icon>playlist_add</mat-icon>Create New
+    </button>
+
+    <div class="dropdown-container">
+      <div class="cont">
+        <app-dropdown
+          *ngIf="talentDropdownOptions.length > 0"
+          label="Talents"
+          [options]="talentDropdownOptions"
+          (selectedOption)="getSelectedOptFromChild($event)"
+        >
+        </app-dropdown>
+      </div>
+      <div class="cont">
+        <app-dropdown
+          label="Priority"
+          [options]="priorityDropDownOptions"
+          (selectedOption)="getSelectedPriorityFromChild($event)"
+        >
+        </app-dropdown>
+      </div>
+
+      <div class="cont">
+        <app-dropdown
+          *ngIf="productionDropdownOptions.length > 0"
+          label="Production"
+          [options]="productionDropdownOptions"
+          (selectedOption)="getSelectedProductionFromChild($event)"
+        >
+        </app-dropdown>
+      </div>
+      <div class="cont">
+        <app-dropdown
+          *ngIf="statusDropDownOptions.length > 0"
+          label="Status"
+          [options]="statusDropDownOptions"
+          (selectedOption)="getSelectedStatusFromChild($event)"
+        >
+        </app-dropdown>
+      </div>
+    </div>
+
+    <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
+  </ng-container>
+  <ng-container>
+    <app-task-list
+      [searchedValue]="searchText"
+      *ngIf="role === 'report_owner'"
+      [selectedTalentValue]="selectedTalent"
+      [selectedPriorityValue]="selectedPriority"
+      [selectedProductionValue]="selectedProduction"
+      [selectedStatusValue]="selectedStatus"
+    >
+    </app-task-list>
+    <app-request-list
+      [searchedValue]="searchText"
+      *ngIf="role === 'manager'"
+      [selectedTalentValue]="selectedTalent"
+      [selectedPriorityValue]="selectedPriority"
+      [selectedProductionValue]="selectedProduction"
+      [selectedStatusValue]="selectedStatus"
+    ></app-request-list>
+    <!-- <app-task-details></app-task-details> -->
+  </ng-container>
+</app-layout>

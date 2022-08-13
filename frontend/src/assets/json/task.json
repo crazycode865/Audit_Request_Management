@@ -1,0 +1,50 @@
+[
+  {
+    "requestId": 21315,
+    "taskDescription": "Pending Settlement",
+    "production": "Marvel Studios",
+    "productionId": "492651_21",
+    "project": "Hit-Monkey",
+    "talentName": "Fred Tatasciore ",
+    "priority": "High ",
+    "auditPeriod": "04/23/20 ~ 04/22/21 ",
+    "request": "04/28/22",
+    "closed": "_/_/_"
+  },
+  {
+    "requestId": 21315,
+    "taskDescription": "Pending Clearance",
+    "production": "Marvel Studios",
+    "productionId": "492651_21",
+    "project": "Hit-Monkey",
+    "talentName": "Fred Tatasciore ",
+    "priority": "High ",
+    "auditPeriod": "04/20/20 ~ 04/19/21 ",
+    "request": "04/25/22",
+    "closed": "05/16/22"
+  },
+  {
+    "requestId": 10312,
+    "taskDescription": "Pending Settlement",
+    "production": "Walt Disney Pic",
+    "productionId": "932802_22 ",
+    "project": "Jungle Cruise ",
+    "talentName": "Dwayne Johnson ",
+    "priority": "High ",
+    "auditPeriod": "04/13/20 ~ 04/12/21 ",
+    "request": "04/18/22",
+    "closed": "05/09/22"
+  },
+  {
+    "requestId": 8654,
+    "taskDescription": "Pending Settlement",
+    "production": "Pixar",
+    "productionId": "89498_A2",
+    "project": "Finding Nemo",
+    "talentName": "Alexander Gould",
+    "priority": "Medium ",
+    "auditPeriod": "04/10/20 ~ 04/09/21 ",
+    "request": "04/12/22",
+    "closed": "05/09/22"
+  }
+]

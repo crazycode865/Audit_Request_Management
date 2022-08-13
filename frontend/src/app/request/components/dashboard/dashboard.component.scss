@@ -1,0 +1,58 @@
+@import 'src/scss/variables';
+
+.cont {
+  margin-left: 0.4rem;
+}
+
+h2 {
+  color: red;
+}
+
+.dropdown-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-element {
+  background-color: $background-color;
+  margin-left: 7px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $background-color;
+  height: 2.5rem;
+  border-radius: 5px;
+}
+
+.icon {
+  margin-right: 0.5rem;
+}
+
+app-box-container {
+  width: 100%;
+  padding: 5px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
+app-request-list {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  height: 100%;
+}
+
+app-task-list {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  height: 100%;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}

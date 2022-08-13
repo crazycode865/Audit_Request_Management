@@ -1,0 +1,41 @@
+<app-box-container class="message-container">
+  <div Class="header" header>
+    <div>
+      <mat-icon>account_box </mat-icon>
+      <p [ngClass]="'receiver-name'">{{ receiverName }}</p>
+      <p [ngClass]="'receiverRole'">{{ roleOfLoggedInUser }}</p>
+    </div>
+
+    <button mat-button (click)="reloadMessages()">
+      <mat-icon>refresh</mat-icon>
+    </button>
+  </div>
+
+  <div #messageTextConatiner ngClass="message-text-container">
+    <div
+      *ngFor="let message of messages"
+      [ngClass]="{
+        from: message.fromUserName === userProfileName,
+        to: message.fromUserName !== userProfileName
+      }"
+    >
+      <p>{{ message.messageText }}</p>
+      <div>
+        <p
+          [ngClass]="{
+            'message-timestamp-right': message.fromUserName === userProfileName,
+            'message-timestamp-left': message.toUserName !== userProfileName
+          }"
+        >
+          {{ message.createdAt | date: 'short' }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="message-footer">
+    <input [formControl]="messageInputCtrl" type="text" class="message-input" />
+    <button (click)="sendMessage($event)">
+      <mat-icon>send</mat-icon>
+    </button>
+  </div>
+</app-box-container>
